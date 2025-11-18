@@ -1,7 +1,4 @@
-
-
-
-#include "wireless2.h"
+#include "wireless.h"
 
 #define NRF_LOG_STR_FORMATTER_TIMESTAMP_FORMAT "\r\n%s: "
 

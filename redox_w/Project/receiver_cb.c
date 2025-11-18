@@ -1,6 +1,4 @@
-
-
-#include "wireless2.h"
+#include "wireless.h"
 
 // Data and acknowledgement payloads
 static uint8_t ack_payload[NRF_GZLL_CONST_MAX_PAYLOAD_LENGTH]; ///< Placeholder for

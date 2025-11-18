@@ -398,11 +398,6 @@
               <FilePath>.\Project\major.c</FilePath>
             </File>
             <File>
-              <FileName>wireless2.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\wireless2.h</FilePath>
-            </File>
-            <File>
               <FileName>receiver_cb.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\receiver_cb.c</FilePath>
@@ -421,6 +416,11 @@
               <FileName>eeprom.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Project\eeprom.h</FilePath>
+            </File>
+            <File>
+              <FileName>wireless.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\wireless.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2025,11 +2025,6 @@
               <FilePath>.\Project\major.c</FilePath>
             </File>
             <File>
-              <FileName>wireless2.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\wireless2.h</FilePath>
-            </File>
-            <File>
               <FileName>receiver_cb.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\receiver_cb.c</FilePath>
@@ -2048,6 +2043,11 @@
               <FileName>eeprom.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Project\eeprom.h</FilePath>
+            </File>
+            <File>
+              <FileName>wireless.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\wireless.h</FilePath>
             </File>
           </Files>
         </Group>
