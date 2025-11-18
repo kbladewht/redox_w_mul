@@ -1901,9 +1901,9 @@
       </Doc>
       <Doc>
         <Name>..\S130\components\drivers_nrf\clock\nrf_drv_clock.c</Name>
-        <ColumnNumber>8</ColumnNumber>
+        <ColumnNumber>9</ColumnNumber>
         <TopLine>246</TopLine>
-        <CurrentLine>265</CurrentLine>
+        <CurrentLine>260</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
