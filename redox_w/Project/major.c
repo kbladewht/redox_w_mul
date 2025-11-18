@@ -46,12 +46,11 @@ void qf_enter_dfu(void) {
 
     NRF_LOG_INFO("qf_enter_dfu runing \n");
     NRF_LOG_FLUSH();
-   NVIC_SystemReset();
+    NVIC_SystemReset();
 }
 
 uint32_t rtc_ota_counter;
 bool check_ota(const uint8_t *keys_buffer) {
-   
     bool corner_pressed = (keys_buffer[0] & MASK_COL_OTA) != 0;
 
     if (!corner_pressed) {
@@ -76,24 +75,15 @@ bool check_ota(const uint8_t *keys_buffer) {
     return false;
 }
 
-
 typedef struct {
-    uint8_t  mask;       
-    uint32_t counter;  
-		uint8_t channel;
+    uint8_t mask;
+    uint32_t counter;
+    uint8_t channel;
 } addr_checker_t;
 
-addr_checker_t addr0 = {
-    .mask = MASK_COL_CHANNEL0,
-    .counter = 0,
-	  .channel = 0
-};
+addr_checker_t addr0 = { .mask = MASK_COL_CHANNEL0, .counter = 0, .channel = 0 };
 
-addr_checker_t addr1 = {
-    .mask = MASK_COL_CHANNEL1,
-    .counter = 0,
-		.channel = 1
-};
+addr_checker_t addr1 = { .mask = MASK_COL_CHANNEL1, .counter = 0, .channel = 1 };
 
 uint32_t rtc_addr_counter0;
 uint32_t rtc_addr_counter1;
@@ -102,37 +92,37 @@ extern uint8_t channelC;
 //checker is either 0 or 1 channel struct
 bool check_addr(const uint8_t *keys_buffer, addr_checker_t *checker) {
     // Hold Edge 10 secs for trigger setup button
-		
-		if(channelC == checker->channel){
-			return false;
-		}
-	
+
+    if (channelC == checker->channel) {
+        return false;
+    }
+
     bool corner_pressed = (keys_buffer[0] & checker->mask) != 0;
 
     if (!corner_pressed) {
         return false;
     }
-		checker->counter++;
-		
-		if (checker->counter % 1000 == 0) {
-				NRF_LOG_INFO(" rtc_addr_counter in processing %d target channel %d\n", checker->counter/1000,checker->channel);
-				NRF_LOG_FLUSH();
-		}
-		
-		if (checker->counter > 10*1000) {
-			NRF_LOG_INFO(" Rtc_addr_counter running > 10 secs %d for target channel %d\n", checker->counter/1000,checker->channel);
-			NRF_LOG_FLUSH();
-			checker->counter = 0;
-			eeprom_write(checker->channel);
-	
-			NVIC_SystemReset();
-		}
+    checker->counter++;
+
+    if (checker->counter % 1000 == 0) {
+        NRF_LOG_INFO(" rtc_addr_counter in processing %d target channel %d\n", checker->counter / 1000, checker->channel);
+        NRF_LOG_FLUSH();
+    }
+
+    if (checker->counter > 10 * 1000) {
+        NRF_LOG_INFO(" Rtc_addr_counter running > 10 secs %d for target channel %d\n", checker->counter / 1000, checker->channel);
+        NRF_LOG_FLUSH();
+        checker->counter = 0;
+        eeprom_write(checker->channel);
+
+        NVIC_SystemReset();
+    }
 
     return false;
 }
 
-void check_predef_action(const uint8_t *keys_buffer){
-		check_addr(keys_buffer,&addr0);
-		check_addr(keys_buffer,&addr1);
-		check_ota(keys_buffer);
+void check_predef_action(const uint8_t *keys_buffer) {
+    check_addr(keys_buffer, &addr0);
+    check_addr(keys_buffer, &addr1);
+    check_ota(keys_buffer);
 }
