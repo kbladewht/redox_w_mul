@@ -1,4 +1,5 @@
 #include "wireless.h"
+#include "eeprom.h"
 
 void print_bits_raw(uint8_t value) {
     for (int i = 7; i >= 0; i--) {
@@ -7,6 +8,7 @@ void print_bits_raw(uint8_t value) {
     NRF_LOG_RAW_INFO("\n");
     NRF_LOG_FLUSH();
 }
+
 uint8_t pre_flag = 0;
 
 extern bool compare_keys(const uint8_t *first, const uint8_t *second, uint32_t size);
@@ -23,13 +25,7 @@ void handle_send(const uint8_t *keys_buffer) {
         if (debounce_ticks == DEBOUNCE) {
             if (keys_snapshot[0] != pre_flag) {
                 pre_flag = keys_snapshot[0];
-							//NRF_LOG_INFO("Marix is \n");
                 print_bits_raw(keys_snapshot[0]);
-
-//								for (int i = 0; i < 7; i++) {
-//										NRF_LOG_INFO("col %d = %d", i, !!(keys_snapshot[0] & (1 << i)));
-//								}
-                //NRF_LOG_FLUSH();
             }
             nrf_gzll_add_packet_to_tx_fifo(PIPE_NUMBER, keys_snapshot, ROWS);
             debounce_ticks = 0;
@@ -55,7 +51,7 @@ void qf_enter_dfu(void) {
 
 uint32_t rtc_ota_counter;
 bool check_ota(const uint8_t *keys_buffer) {
-    // 判断按住边角 5 秒以上
+   
     bool corner_pressed = (keys_buffer[0] & MASK_COL_OTA) != 0;
 
     if (!corner_pressed) {
@@ -80,11 +76,10 @@ bool check_ota(const uint8_t *keys_buffer) {
     return false;
 }
 
-#include "eeprom.h"
 
 typedef struct {
-    uint8_t  mask;        // 哪一列
-    uint32_t counter;     // 记录按住时间
+    uint8_t  mask;       
+    uint32_t counter;  
 		uint8_t channel;
 } addr_checker_t;
 
@@ -103,9 +98,10 @@ addr_checker_t addr1 = {
 uint32_t rtc_addr_counter0;
 uint32_t rtc_addr_counter1;
 extern uint8_t channelC;
-//Mask 可以是MASK_COL_CHANNEL0,也可以是1通道 MASK_COL_CHANNEL1
+
+//checker is either 0 or 1 channel struct
 bool check_addr(const uint8_t *keys_buffer, addr_checker_t *checker) {
-    // 判断按住边角 10 秒以上
+    // Hold Edge 10 secs for trigger setup button
 		
 		if(channelC == checker->channel){
 			return false;
@@ -128,8 +124,6 @@ bool check_addr(const uint8_t *keys_buffer, addr_checker_t *checker) {
 			NRF_LOG_FLUSH();
 			checker->counter = 0;
 			eeprom_write(checker->channel);
-			//nrf_delay_ms(20);ppppppppp
-			// NRF_POWER->GPREGRET = QF_APP_MAGIC_START;
 	
 			NVIC_SystemReset();
 		}

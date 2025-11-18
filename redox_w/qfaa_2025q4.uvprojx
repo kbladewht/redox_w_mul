@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>C:\nrfutil\output_51822\</OutputDirectory>
-          <OutputName>51822_b_left</OutputName>
+          <OutputName>51822_left</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
