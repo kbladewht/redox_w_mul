@@ -1,9 +1,3 @@
-
-
-//#undef NRF_LOG_ENABLED
-//#define NRF_LOG_ENABLED 1
-
-
 #ifndef _BOARD_H_
 #define _BOARD_H_
 
@@ -25,10 +19,15 @@
 
 #define RTC_ENABLED 1
 #define RTC1_ENABLED 1
+
 #define APP_TIMER_ENABLED 0
+
 #define FSTORAGE_ENABLED 0
 #define CLOCK_CONFIG_LF_SRC 0
+
+//this is magic Number for enter DFU
 #define BOOTLOADER_DFU_START 0xB1
+//this is magic Number for enter APP(BLE Stack skip) 
 #define QF_APP_MAGIC_START 0x24
 
 // Low frequency clock source to be used by the SoftDevice

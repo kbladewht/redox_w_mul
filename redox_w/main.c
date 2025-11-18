@@ -14,8 +14,8 @@ int rows[] = ROW_QF;
 int columns[] = COL_QF;
 
 static void lfclk_config(void) {
-  ret_code_t err_code =
-  nrf_drv_clock_init();
+  ret_code_t err_code ;
+  err_code = nrf_drv_clock_init();
   APP_ERROR_CHECK(err_code);
 
   nrf_drv_clock_lfclk_request(NULL);
@@ -201,7 +201,7 @@ int main(void) {
 		}
 }
 
-//void app_error_fault_handler(uint32_t id, uint32_t pc, uint32_t info) {
-//    NVIC_SystemReset();
-//}
+void app_error_fault_handler(uint32_t id, uint32_t pc, uint32_t info) {
+    NVIC_SystemReset();
+}
 
