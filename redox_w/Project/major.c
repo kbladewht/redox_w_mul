@@ -117,16 +117,14 @@ bool check_addr(const uint8_t *keys_buffer, addr_checker_t *checker) {
         return false;
     }
 		checker->counter++;
-//		NRF_LOG_INFO("xxxxxxxxxxxxxxxx in processing %d target channel %d\n", checker->counter,checker->channel);
-//			NRF_LOG_FLUSH();
 		
 		if (checker->counter % 1000 == 0) {
-				NRF_LOG_INFO("xxx rtc_addr_counter in processing %d target channel %d\n", checker->counter/1000,checker->channel);
+				NRF_LOG_INFO(" rtc_addr_counter in processing %d target channel %d\n", checker->counter/1000,checker->channel);
 				NRF_LOG_FLUSH();
 		}
 		
 		if (checker->counter > 10*1000) {
-			NRF_LOG_INFO("xxxx triggered rtc_addr_counter button hodling > 10 secs %d for target channel %d\n", checker->counter/1000,checker->channel);
+			NRF_LOG_INFO(" Rtc_addr_counter running > 10 secs %d for target channel %d\n", checker->counter/1000,checker->channel);
 			NRF_LOG_FLUSH();
 			checker->counter = 0;
 			eeprom_write(checker->channel);
