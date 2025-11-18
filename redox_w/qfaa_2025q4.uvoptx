@@ -22,7 +22,7 @@
   </DaveTm>
 
   <Target>
-    <TargetName>nrf51822_b_left</TargetName>
+    <TargetName>nrf51822_left</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>
@@ -182,7 +182,7 @@
   </Target>
 
   <Target>
-    <TargetName>nrf51822_b_right</TargetName>
+    <TargetName>nrf51822_right</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>

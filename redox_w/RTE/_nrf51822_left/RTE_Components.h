@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'redox_w' 
+ * Project: 'qfaa_2025q4' 
  * Target:  'nrf51822_left' 
  */
 
