@@ -32,8 +32,7 @@
 #define USR_LED 9
 #define QF_LOG
 
-//对应左上角
 
-#define MASK_COL_OTA	(1 << (0))		// 第 0 列掩码
+#define MASK_COL_OTA	(1 << (0))		
 #define MASK_COL_CHANNEL0	(1 << (1))	
 #define MASK_COL_CHANNEL1	(1 << (2))	

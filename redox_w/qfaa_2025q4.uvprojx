@@ -1538,7 +1538,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>C:\nrfutil\output_51822\</OutputDirectory>
-          <OutputName>51822_b_right</OutputName>
+          <OutputName>51822_right</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
