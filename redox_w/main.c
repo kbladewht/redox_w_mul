@@ -66,7 +66,7 @@ static void handle_inactivity(const uint8_t *keys_buffer) {
         inactivity_ticks++;
         if (inactivity_ticks > INACTIVITY_THRESHOLD) {
             nrf_drv_rtc_disable(&rtc1);
-            nrf_gpio_pin_clear(USR_LED);
+            //nrf_gpio_pin_clear(USR_LED);
 
             for (int i = 0; i < COLUMNS; i++) {
                 nrf_gpio_pin_set(columns[i]);
@@ -191,5 +191,6 @@ int main(void) {
 }
 
 void app_error_fault_handler(uint32_t id, uint32_t pc, uint32_t info) {
+		NRF_POWER->GPREGRET = QF_APP_MAGIC_START;
     NVIC_SystemReset();
 }

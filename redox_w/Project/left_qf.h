@@ -27,7 +27,7 @@
 #define COLUMNS 7
 #define ROWS 4
 #define USE_APP_CONFIG
-#define NRF_LOG_ENABLED 1
+#define NRF_LOG_ENABLED 0
 
 #define USR_LED 9
 #define QF_LOG
