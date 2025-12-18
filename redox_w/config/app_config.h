@@ -12,6 +12,10 @@
 #include "right_qf.h"
 #endif
 
+#ifdef OFFICAL_LEFT
+#include "offical_left_qf.h"
+#endif
+
 
 #undef FDS_VIRTUAL_PAGES
 #define FDS_VIRTUAL_PAGES 12
