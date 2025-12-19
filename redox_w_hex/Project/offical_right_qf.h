@@ -21,3 +21,4 @@
 #define MASK_COL_CHANNEL0	(1 << (COLUMNS-2))	
 #define MASK_COL_CHANNEL1	(1 << (COLUMNS-3))	
 
+#define QF_ONE_CHANNEL
