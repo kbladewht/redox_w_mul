@@ -7,18 +7,18 @@
 #define PIPE_NUMBER 0
 
 
-#define C01 0
-#define C02 1
-#define C03 2
-#define C04 3
-#define C05 4
-#define C06 5
-#define C07 6
+#define C01 19
+#define C02 18
+#define C03 17
+#define C04 16
+#define C05 15
+#define C06 14
+#define C07 13
 
-#define R01 21
-#define R02 22
-#define R03 23
-#define R04 24
+#define R01 1
+#define R02 2
+#define R03 3
+#define R04 4
 
 
 #define COL_QF { C01, C02, C03, C04, C05, C06, C07 }
@@ -27,12 +27,20 @@
 #define COLUMNS 7
 #define ROWS 4
 #define USE_APP_CONFIG
-#define NRF_LOG_ENABLED 0
+#define NRF_LOG_ENABLED 1
 
-#define USR_LED 9
+#define USR_LED 21
 #define QF_LOG
 
 
 #define MASK_COL_OTA	(1 << (0))		
 #define MASK_COL_CHANNEL0	(1 << (1))	
 #define MASK_COL_CHANNEL1	(1 << (2))	
+
+#define ENCODER_ENABLE
+#define ENCODER_RESOLUTION 4
+#define NUM_ENCODERS 1
+#define ENCODER_A_PINS { 10}
+#define ENCODER_B_PINS { 8 }
+
+

@@ -59,32 +59,52 @@ static bool empty_keys(const uint8_t *keys_buffer) {
 }
 
 static void handle_inactivity(const uint8_t *keys_buffer) {
-    static uint32_t inactivity_ticks = 0;
+//    static uint32_t inactivity_ticks = 0;
 
-    // looking for 500 ticks of no keys pressed, to go back to deep sleep
-    if (empty_keys(keys_buffer)) {
-        inactivity_ticks++;
-        if (inactivity_ticks > INACTIVITY_THRESHOLD) {
-            nrf_drv_rtc_disable(&rtc1);
-            //nrf_gpio_pin_clear(USR_LED);
+//    // looking for 500 ticks of no keys pressed, to go back to deep sleep
+//    if (empty_keys(keys_buffer)) {
+//        inactivity_ticks++;
+//        if (inactivity_ticks > INACTIVITY_THRESHOLD) {
+//            nrf_drv_rtc_disable(&rtc1);
+//            //nrf_gpio_pin_clear(USR_LED);
 
-            for (int i = 0; i < COLUMNS; i++) {
-                nrf_gpio_pin_set(columns[i]);
-            }
+//            for (int i = 0; i < COLUMNS; i++) {
+//                nrf_gpio_pin_set(columns[i]);
+//            }
 
-            inactivity_ticks = 0;
-            // Bare-metal mode (no SoftDevice)
-            NRF_POWER->GPREGRET = QF_APP_MAGIC_START;
+//            inactivity_ticks = 0;
+//            // Bare-metal mode (no SoftDevice)
+//            NRF_POWER->GPREGRET = QF_APP_MAGIC_START;
 
-            NRF_LOG_INFO("SYSTEMOFF \n");
-            NRF_POWER->SYSTEMOFF = 1;
-        }
-    } else {
-        inactivity_ticks = 0;
-    }
+//            NRF_LOG_INFO("SYSTEMOFF \n");
+//            NRF_POWER->SYSTEMOFF = 1;
+//        }
+//    } else {
+//        inactivity_ticks = 0;
+//    }
 }
 extern void handle_send(const uint8_t *keys_buffer);
+extern uint32_t timer_read32(void);
+extern uint32_t timer_elapsed32(uint32_t last);
 void check_predef_action(const uint8_t *keys_buffer);
+
+static uint32_t last_input_modification_time = 0;
+static uint32_t last_encoder_modification_time = 0;
+uint32_t        last_encoder_activity_time(void) {
+    return last_encoder_modification_time;
+}
+uint32_t last_encoder_activity_elapsed(void) {
+    return timer_elapsed32(last_encoder_modification_time);
+}
+
+void last_encoder_activity_trigger(void) {
+    last_encoder_modification_time = last_input_modification_time = timer_read32();
+}
+bool encoder_update_user(uint8_t index, bool clockwise) {
+	   NRF_LOG_INFO("encoder_update_user ******direction - > %d\r\n",clockwise);
+	  NRF_LOG_FLUSH();
+    return true;
+}
 void tick(nrf_drv_rtc_int_type_t int_type) {
     uint8_t keys_buffer[ROWS];
     memset(keys_buffer, 0, ROWS);
@@ -94,6 +114,13 @@ void tick(nrf_drv_rtc_int_type_t int_type) {
     check_predef_action(keys_buffer);
     handle_inactivity(keys_buffer);
     handle_send(keys_buffer);
+	 #ifdef ENCODER_ENABLE
+    if (encoder_task()) {
+        last_encoder_activity_trigger();
+//			  NRF_LOG_INFO("encoder 111111*....\r\n");
+//			NRF_LOG_FLUSH();
+    }
+    #endif
 }
 // Setup switch pins with pullups
 static void gpio_config(void) {
@@ -109,6 +136,10 @@ static void gpio_config(void) {
 #if USR_LED
     nrf_gpio_cfg_output(USR_LED);
     nrf_gpio_pin_set(USR_LED);
+#endif
+		
+		#ifdef ENCODER_ENABLE
+    encoder_init();
 #endif
 }
 static void rtc_config(void) {
@@ -182,14 +213,18 @@ int main(void) {
     uint32_t m_counter = 0;
     for (;;) {
         m_counter++;
-        if (m_counter % 5000 == 0) {
-            NRF_LOG_INFO("11 m_counter -> %d\r\n", m_counter / 5000);
+        if (m_counter % 100000 == 0) {
+//					 nrf_gpio_cfg_input(11, NRF_GPIO_PIN_PULLUP);
+//					 nrf_gpio_cfg_input(8, NRF_GPIO_PIN_PULLUP);
+					uint32_t ddd = nrf_gpio_pin_read(11);
+					uint32_t d2 = nrf_gpio_pin_read(8);
+            NRF_LOG_INFO("11 m_counter -> %d pada %d pad2 %d\r\n", m_counter / 5000,ddd,d2);
             NRF_LOG_FLUSH();
         }
 
-        __WFE();
-        __SEV();
-        __WFE();
+//        __WFE();
+//        __SEV();
+//        __WFE();
     }
 }
 

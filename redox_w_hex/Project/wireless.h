@@ -16,6 +16,7 @@
 #include "nrf_gzll.h"
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
+#include "encoder.h"
 
 // Debounce time (dependent on tick frequency)
 #define DEBOUNCE 5

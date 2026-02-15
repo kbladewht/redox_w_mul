@@ -432,6 +432,26 @@
               <FileType>5</FileType>
               <FilePath>.\Project\offical_right_qf.h</FilePath>
             </File>
+            <File>
+              <FileName>encoder_quadrature.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder_quadrature.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_qf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer_qf.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1930,6 +1950,26 @@
               <FileName>offical_right_qf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Project\offical_right_qf.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder_quadrature.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder_quadrature.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_qf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer_qf.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3430,6 +3470,26 @@
               <FileType>5</FileType>
               <FilePath>.\Project\offical_right_qf.h</FilePath>
             </File>
+            <File>
+              <FileName>encoder_quadrature.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder_quadrature.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_qf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer_qf.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4928,6 +4988,26 @@
               <FileName>offical_right_qf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Project\offical_right_qf.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder_quadrature.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder_quadrature.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_qf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer_qf.c</FilePath>
             </File>
           </Files>
         </Group>
