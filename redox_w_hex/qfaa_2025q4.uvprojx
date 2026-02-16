@@ -403,11 +403,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -1504,6 +1499,11 @@
               <FileName>app_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1922,11 +1922,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -3023,6 +3018,11 @@
               <FileName>app_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3441,11 +3441,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -4542,6 +4537,11 @@
               <FileName>app_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4960,11 +4960,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -6061,6 +6056,11 @@
               <FileName>app_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
             </File>
           </Files>
         </Group>

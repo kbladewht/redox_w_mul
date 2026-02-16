@@ -50,13 +50,15 @@ bool encoder_task(void) {
 //    }
 
     // Let the encoder driver produce events
+	//encoder_queue_event 这个把触发放到queue里面
     encoder_driver_task();
 
     // Process any events that were enqueued
 //    if (should_process_encoder()) {
 //			
 	
-	
+	//while (encoder_dequeue_event(&index, &clockwise)) 
+	//这个queue都取出来,挨个触发
         changed |= encoder_handle_queue();
 //    }
 

@@ -31,7 +31,7 @@ static void read_keys(uint8_t *row_stat) {
     for (c = 0; c < COLUMNS; ++c) {
         nrf_gpio_pin_set(COL_PINS[c]);
         asm volatile("nop");
-        input = NRF_GPIO->IN;
+        input = NRF_GPIO->IN;//// 这是一个32位的寄存器,包含所有io当前的电平
         for (int i = 0; i < ROWS; i++) {
             row_stat[i] = (row_stat[i] << 1) | ((input >> (rows[i])) & 1);
         }
@@ -101,26 +101,32 @@ void last_encoder_activity_trigger(void) {
     last_encoder_modification_time = last_input_modification_time = timer_read32();
 }
 bool encoder_update_user(uint8_t index, bool clockwise) {
-	   NRF_LOG_INFO("encoder_update_user ******direction - > %d\r\n",clockwise);
+	   NRF_LOG_INFO("encoder_update_user->clockwise - > %d\r\n",clockwise);
 	  NRF_LOG_FLUSH();
     return true;
 }
 void tick(nrf_drv_rtc_int_type_t int_type) {
-    uint8_t keys_buffer[ROWS];
+	#ifdef ENCODER_ENABLE
+	 uint8_t keys_buffer[ROWS+1];
+    memset(keys_buffer, 0, ROWS+1);
+	#else
+	 uint8_t keys_buffer[ROWS];
     memset(keys_buffer, 0, ROWS);
-
+	#endif
+   
     read_keys(keys_buffer);
-    //check it for ota/switch channel purpose
-    check_predef_action(keys_buffer);
-    handle_inactivity(keys_buffer);
-    handle_send(keys_buffer);
-	 #ifdef ENCODER_ENABLE
+		 #ifdef ENCODER_ENABLE
     if (encoder_task()) {
         last_encoder_activity_trigger();
 //			  NRF_LOG_INFO("encoder 111111*....\r\n");
 //			NRF_LOG_FLUSH();
     }
     #endif
+    //check it for ota/switch channel purpose
+   // check_predef_action(keys_buffer);
+    handle_inactivity(keys_buffer);
+    handle_send(keys_buffer);
+
 }
 // Setup switch pins with pullups
 static void gpio_config(void) {
@@ -216,7 +222,7 @@ int main(void) {
         if (m_counter % 100000 == 0) {
 //					 nrf_gpio_cfg_input(11, NRF_GPIO_PIN_PULLUP);
 //					 nrf_gpio_cfg_input(8, NRF_GPIO_PIN_PULLUP);
-					uint32_t ddd = nrf_gpio_pin_read(11);
+					uint32_t ddd = nrf_gpio_pin_read(10);
 					uint32_t d2 = nrf_gpio_pin_read(8);
             NRF_LOG_INFO("11 m_counter -> %d pada %d pad2 %d\r\n", m_counter / 5000,ddd,d2);
             NRF_LOG_FLUSH();
