@@ -403,11 +403,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -1484,6 +1479,11 @@
               <FileName>app_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1902,11 +1902,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -2984,6 +2979,11 @@
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
             </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3052,7 +3052,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>0</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\_build\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -3401,11 +3401,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -4482,6 +4477,11 @@
               <FileName>app_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4900,11 +4900,6 @@
               <FilePath>.\Project\receiver_cb.c</FilePath>
             </File>
             <File>
-              <FileName>left_qf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Project\left_qf.h</FilePath>
-            </File>
-            <File>
               <FileName>eeprom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Project\eeprom.c</FilePath>
@@ -5981,6 +5976,11 @@
               <FileName>app_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\config\app_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>left_qf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Project\left_qf.h</FilePath>
             </File>
           </Files>
         </Group>
