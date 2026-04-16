@@ -74,7 +74,7 @@ static void handle_inactivity(const uint8_t *keys_buffer) {
 
             inactivity_ticks = 0;
             // Bare-metal mode (no SoftDevice)
-            NRF_POWER->GPREGRET = QF_APP_MAGIC_START;
+           // NRF_POWER->GPREGRET = QF_APP_MAGIC_START;
 
             NRF_LOG_INFO("SYSTEMOFF \n");
             NRF_POWER->SYSTEMOFF = 1;
@@ -84,14 +84,12 @@ static void handle_inactivity(const uint8_t *keys_buffer) {
     }
 }
 extern void handle_send(const uint8_t *keys_buffer);
-void check_predef_action(const uint8_t *keys_buffer);
 void tick(nrf_drv_rtc_int_type_t int_type) {
     uint8_t keys_buffer[ROWS];
     memset(keys_buffer, 0, ROWS);
 
     read_keys(keys_buffer);
-    //check it for ota/switch channel purpose
-    check_predef_action(keys_buffer);
+  
     handle_inactivity(keys_buffer);
     handle_send(keys_buffer);
 }
@@ -106,10 +104,7 @@ static void gpio_config(void) {
         nrf_gpio_pin_clear(columns[i]);
     }
 
-#if USR_LED
-    nrf_gpio_cfg_output(USR_LED);
-    nrf_gpio_pin_set(USR_LED);
-#endif
+
 }
 static void rtc_config(void) {
     // Initialize RTC instance
@@ -146,23 +141,10 @@ int main(void) {
     nrf_gzll_set_datarate(NRF_GZLL_DATARATE_1MBIT);
     nrf_gzll_set_timeslot_period(900);
 	
-	#ifdef QF_ONE_CHANNEL
-	channelC = 0;
-#endif
-    if (channelC == 0) {
-        // Set Addressing
-        nrf_gzll_set_base_address_0(BASE_ADDR0_PART1);
-        nrf_gzll_set_base_address_1(BASE_ADDR0_PART2);
-    } else if (channelC == 1) {
-        // Set Addressing
-        NRF_LOG_INFO("Taking addr 11**********....\r\n");
-        nrf_gzll_set_base_address_0(BASE_ADDR1_PART1);
-        nrf_gzll_set_base_address_1(BASE_ADDR1_PART2);
-    } else {
-        NRF_LOG_INFO("Taking addr 000**********....\r\n");
-        nrf_gzll_set_base_address_0(BASE_ADDR0_PART1);
-        nrf_gzll_set_base_address_1(BASE_ADDR0_PART2);
-    }
+
+		// Set Addressing
+		nrf_gzll_set_base_address_0(BASE_ADDR0_PART1);
+		nrf_gzll_set_base_address_1(BASE_ADDR0_PART2);
 
     // Enable Gazell to start sending over the air
     nrf_gzll_enable();
@@ -182,10 +164,10 @@ int main(void) {
     uint32_t m_counter = 0;
     for (;;) {
         m_counter++;
-        if (m_counter % 5000 == 0) {
-            NRF_LOG_INFO("11 m_counter -> %d\r\n", m_counter / 5000);
-            NRF_LOG_FLUSH();
-        }
+//        if (m_counter % 5000 == 0) {
+//            NRF_LOG_INFO("11 m_counter -> %d\r\n", m_counter / 5000);
+//            NRF_LOG_FLUSH();
+//        }
 
         __WFE();
         __SEV();
@@ -194,6 +176,5 @@ int main(void) {
 }
 
 void app_error_fault_handler(uint32_t id, uint32_t pc, uint32_t info) {
-		NRF_POWER->GPREGRET = QF_APP_MAGIC_START;
     NVIC_SystemReset();
 }

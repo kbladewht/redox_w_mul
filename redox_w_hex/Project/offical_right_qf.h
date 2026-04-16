@@ -12,13 +12,4 @@
 #define USE_APP_CONFIG
 #define NRF_LOG_ENABLED 0
 
-#define USR_LED 9
-#define QF_LOG
 
-
-//对应右上角 // 第 6 列掩码
-#define MASK_COL_OTA	(1 << (COLUMNS-1))		
-#define MASK_COL_CHANNEL0	(1 << (COLUMNS-2))	
-#define MASK_COL_CHANNEL1	(1 << (COLUMNS-3))	
-
-#define QF_ONE_CHANNEL
