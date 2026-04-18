@@ -128,7 +128,7 @@ int main(void) {
     err_code = NRF_LOG_INIT(NULL);
     APP_ERROR_CHECK(err_code);
 
-    channelC = eeprom_read();
+    //channelC = eeprom_read();
     NRF_LOG_INFO("Addr is  *************is %d\r\n", channelC);
 
     // Initialize Gazell
